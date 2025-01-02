@@ -32,10 +32,10 @@ modules:
     remove:
       - firefox
       - firefox-langpacks
-      - sway
-      - wofi
-      - mako
-      - xarchiver
+      # - sway
+      # - wofi
+      # - mako
+      # - xarchiver
 
   - type: default-flatpaks
     notify: true
