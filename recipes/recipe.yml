@@ -29,6 +29,7 @@ modules:
       - swww
       - swaync
       - niri
+      - greetd
     remove:
       - firefox
       - firefox-langpacks
@@ -47,6 +48,14 @@ modules:
       # remove:
       #   - 
     user: {} # Also add Flathub user repo, but no user packages
+
+    type: systemd
+    # this example disables automatic flatpak updates and enables a custom service unit for all users
+    system:
+      disabled:
+        - sddm.service
+      enabled:
+        - greetd.service
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
