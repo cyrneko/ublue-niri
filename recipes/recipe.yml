@@ -49,7 +49,7 @@ modules:
       #   - 
     user: {} # Also add Flathub user repo, but no user packages
 
-    type: systemd
+  - type: systemd
     # this example disables automatic flatpak updates and enables a custom service unit for all users
     system:
       disabled:
