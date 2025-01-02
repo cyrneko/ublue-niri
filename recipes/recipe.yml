@@ -35,7 +35,6 @@ modules:
       - sway
       - wofi
       - mako
-      - alacritty
       - xarchiver
 
   - type: default-flatpaks
