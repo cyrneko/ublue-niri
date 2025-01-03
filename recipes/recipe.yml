@@ -4,13 +4,13 @@ name: ublue-niri
 description: "Personal image with Niri, Waybar and other goodies."
 
 base-image: ghcr.io/ublue-os/sericea-nvidia
-image-version: 41 # latest is also supported if you want new updates ASAP
+image-version: 41
 
 modules:
   - type: files
     files:
       - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+        destination: /
 
   - type: rpm-ostree
     repos:
@@ -30,13 +30,12 @@ modules:
       - swaync
       - niri
       - greetd
+      - pantheon-agent-polkit
     remove:
       - firefox
       - firefox-langpacks
-      # - sway
-      # - wofi
-      # - mako
-      # - xarchiver
+      - sway
+      - xarchiver
 
   - type: default-flatpaks
     notify: true
@@ -50,12 +49,11 @@ modules:
     user: {} # Also add Flathub user repo, but no user packages
 
   - type: systemd
-    # this example disables automatic flatpak updates and enables a custom service unit for all users
     system:
       disabled:
         - sddm.service
       enabled:
         - greetd.service
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing 
 
