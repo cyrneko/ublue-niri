@@ -55,5 +55,10 @@ modules:
       enabled:
         - greetd.service
 
+  - type: justfiles
+    validate: false
+    include:
+      - config
+
   - type: signing 
 
