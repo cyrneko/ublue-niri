@@ -1,9 +1,10 @@
+// spawn-at-startup "/usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
 spawn-at-startup "xwayland-satellite" ":3"
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "clipman"
-spawn-at-startup "wlsunset" "-S" "9:30" "-s" "17:00" "-t" "3500"
+spawn-at-startup "wlsunset" "-S" "9:30" "-s" "17:00" "-t" "3500" "-d" "1800"
 // workaround audio crackling with EasyEffects' crystalizer
 spawn-at-startup "pw-metadata" "-n" "settings" "0" "clock.force-quantum" "1024"
 prefer-no-csd
