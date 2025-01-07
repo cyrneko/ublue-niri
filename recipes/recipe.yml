@@ -31,11 +31,14 @@ modules:
       - niri
       - greetd
       - pantheon-agent-polkit
+      - xwayland-satellite
+      - adw-gtk3-theme
     remove:
       - firefox
       - firefox-langpacks
       - sway
       - xarchiver
+      - sddm
 
   - type: default-flatpaks
     notify: true
@@ -50,15 +53,27 @@ modules:
 
   - type: systemd
     system:
-      disabled:
-        - sddm.service
+      # disabled:
+      #   - sddm.service
       enabled:
         - greetd.service
+    user:
+      enabled:
+        - waybar.service
 
   - type: justfiles
     validate: false
     include:
       - config
+
+  - type: gschema-overrides
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode
+      google-fonts:
+        - Inter
 
   - type: signing 
 
