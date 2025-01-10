@@ -37,7 +37,6 @@ modules:
       - adw-gtk3-theme
       - nautilus
       - xdg-desktop-portal-gnome
-      - firacode-nerd-fonts
       - fish
     remove:
       - firefox
@@ -46,7 +45,6 @@ modules:
       - xarchiver
       - sddm
       - thunar
-      - rofi
 
   - type: default-flatpaks
     notify: true
