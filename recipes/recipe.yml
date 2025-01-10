@@ -44,7 +44,6 @@ modules:
       - sway
       - xarchiver
       - sddm
-      - thunar
 
   - type: default-flatpaks
     notify: true
