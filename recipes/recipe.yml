@@ -17,7 +17,8 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/ulysg/xwayland-satellite/repo/fedora-%OS_VERSION%/ulysg-xwayland-satellite-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+      # - https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-git-fedora-%OS_VERSION%.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://repo.librewolf.net/librewolf.repo
       - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
@@ -30,15 +31,22 @@ modules:
       - swaync
       - niri
       - greetd
+      - greetd-selinux
       - pantheon-agent-polkit
       - xwayland-satellite
       - adw-gtk3-theme
+      - nautilus
+      - xdg-desktop-portal-gnome
+      - firacode-nerd-fonts
+      - fish
     remove:
       - firefox
       - firefox-langpacks
       - sway
       - xarchiver
       - sddm
+      - thunar
+      - rofi
 
   - type: default-flatpaks
     notify: true
@@ -68,12 +76,12 @@ modules:
 
   - type: gschema-overrides
 
-  - type: fonts
-    fonts:
-      nerd-fonts:
-        - FiraCode
-      google-fonts:
-        - Inter
+  # - type: fonts
+    # fonts:
+      # nerd-fonts:
+        # - Fira Code
+      # google-fonts:
+        # - Inter
 
   - type: signing 
 

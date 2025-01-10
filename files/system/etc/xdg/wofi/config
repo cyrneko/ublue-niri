@@ -1,0 +1,12 @@
+columns=1
+lines=12
+matching=multi-contains
+# term=foot
+prompt=search
+# allow_images=true
+hide_scroll=true
+insensitive=true
+no_actions=true
+dynamic_lines=true
+# normal_window=true
+stylesheet=style.css

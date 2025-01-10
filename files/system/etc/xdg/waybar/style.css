@@ -5,7 +5,7 @@
 
 window#waybar {
     background: alpha(@theme_base_color, 0.95);
-	color: black;
+		color: black;
 }
 
 window#waybar.hidden {
@@ -56,21 +56,27 @@ button:hover {
     margin-top: 0.65rem;
     margin-bottom: 0.65rem;
     border-radius: 2rem;
-    /* transition: 0.1s; */
+    transition: 0.1s;
+    transition-timing-function: steps(24);
     /* disabled cuz it jumps around a little :( */
 }
 
 #workspaces button.focused > * {
     background: alpha(@theme_text_color, 1);
-    padding-left: 1.1rem;
-    padding-right: 1.1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0.55rem;
+    margin-bottom: 0.55rem;
     border-radius: 2rem;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+}
+
+#taskbar {
+	padding: 0px;
+	min-height: 0px;
 }
 
 #mode {

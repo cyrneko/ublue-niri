@@ -1,0 +1,29 @@
+#window {
+	border: 2px solid alpha(@theme_text_color, 0.2);
+	/* border-radius: 12px; */
+	/* Sadly broken on Niri :( */
+	background-color: @theme_base_color;
+	color: @theme_text_color;
+}
+
+#outer-box {
+	font-family: "Fira Code";
+	color: @theme_text_color;
+	margin: 12px;
+	border-radius: 12px;
+}
+
+#input {
+	margin-bottom: 2px;
+	border-width: 2px;
+}
+
+#entry {
+	padding: 6px;
+	border-radius: 8px;
+}
+
+#entry:selected {
+	/* background-color: @light-background; */
+	/* color: @text; */
+}

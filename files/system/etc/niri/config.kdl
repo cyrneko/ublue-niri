@@ -46,11 +46,11 @@ input {
 
 // Shitty laptop screen
 output "Chi Mei Optoelectronics corp. 0x15A7 Unknown" {
-	scale 0.9
+	scale 0.95
 }
 
 layout {
-    gaps 16
+    gaps 8
     center-focused-column "never"
 
     preset-column-widths {
@@ -64,16 +64,17 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // off
-        width 4
-        active-color "#aa69f8"
+        width 2
+        // active-color "#aa69f8"
+        active-color "lightblue"
         // active-gradient from="#00ba5e" to="#72b536" angle=45 relative-to="workspace-view"
     }
 }
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d---%H-%M-%S.png"
 
 animations {
     // off
-    slowdown 2.5
+    slowdown 2.0
 }
 
 window-rule {
@@ -110,7 +111,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "foot"; }
-    Mod+Space { spawn "fuzzel"; }
+    Mod+Space { spawn "wofi" "--show" "drun"; }
     Super+Alt+L { spawn "swaylock"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
