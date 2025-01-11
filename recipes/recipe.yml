@@ -40,12 +40,16 @@ modules:
       - firacode-nerd-fonts # I give up with the fonts for now
       - fish
       - wofi
+      - eza
+      - bat
     remove:
       - firefox
       - firefox-langpacks
       - sway
       - xarchiver
       - sddm
+      - rofi
+      - thunar
 
   - type: default-flatpaks
     notify: true
