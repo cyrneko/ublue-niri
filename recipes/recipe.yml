@@ -37,6 +37,7 @@ modules:
       - adw-gtk3-theme
       - nautilus
       - xdg-desktop-portal-gnome
+      - firacode-nerd-fonts # I give up with the fonts for now
       - fish
     remove:
       - firefox
