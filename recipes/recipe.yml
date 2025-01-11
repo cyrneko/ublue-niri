@@ -39,6 +39,7 @@ modules:
       - xdg-desktop-portal-gnome
       - firacode-nerd-fonts # I give up with the fonts for now
       - fish
+      - wofi
     remove:
       - firefox
       - firefox-langpacks
