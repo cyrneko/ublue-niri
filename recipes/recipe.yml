@@ -48,8 +48,8 @@ modules:
       - sway
       - xarchiver
       - sddm
-      - rofi
-      - thunar
+      # - rofi
+      # - thunar
 
   - type: default-flatpaks
     notify: true
