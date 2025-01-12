@@ -9,4 +9,4 @@ insensitive=true
 no_actions=true
 dynamic_lines=true
 # normal_window=true
-stylesheet=style.css
+stylesheets=/etc/xdg/wofi/style.css

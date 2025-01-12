@@ -74,7 +74,7 @@ screenshot-path "~/Pictures/Screenshots/%Y-%m-%d---%H-%M-%S.png"
 
 animations {
     // off
-    slowdown 2.0
+    slowdown 1.0
 }
 
 window-rule {
@@ -83,12 +83,27 @@ window-rule {
 }
 
 window-rule {
-  match app-id="com.moonlight_stream.Moonlight"
-  default-column-width { proportion 1.0; }
+  	match app-id="com.moonlight_stream.Moonlight$"
+  	default-column-width { proportion 1.0; }
 }
 
 window-rule {
-  default-column-width { proportion 0.5; }
+	match app-id="foot"
+	default-column-width { proportion 0.5; }
+	// default-window-height { proportion 0.6; }
+}
+
+window-rule {
+    match app-id="firefox$" title="^Picture-in-Picture$"
+    match app-id="zen$" title="^Picture-in-Picture$"
+    match app-id="librewolf$" title="^Picture-in-Picture$"
+
+    open-floating true
+    default-floating-position x=12 y=12 relative-to="top-right"
+}
+
+/- window-rule {
+	open-floating true
 }
 
 // Example: block out two password managers from screen capture.
@@ -111,9 +126,9 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "foot"; }
-    // Mod+Space { spawn "wofi" "--show" "drun"; }
-    Mod+Space { spawn "fuzzel"; }
-    Super+Alt+L { spawn "swaylock"; }
+    Mod+Space { spawn "wofi" "--show" "drun" "--conf" "/etc/xdg/wofi/config" "--style" "/etc/xdg/wofi/style.css"; }
+    // Mod+Space { spawn "fuzzel"; }
+    Super+L { spawn "swaylock"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
