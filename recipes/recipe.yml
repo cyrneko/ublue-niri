@@ -7,10 +7,7 @@ base-image: ghcr.io/ublue-os/sericea-nvidia
 image-version: 41
 
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: /
+
 
   - type: rpm-ostree
     repos:
@@ -51,6 +48,22 @@ modules:
       - sddm
       # - rofi
       # - thunar
+
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  - type: script
+    snippets:
+     - rm /usr/share/wayland-sessions/cosmic.desktop
+     - rm /usr/share/wayland-sessions/sway.desktop
+     - rm /usr/share/applications/thunar.desktop
+     - rm /usr/share/applications/thunar-bulk-rename.desktop
+     - rm /usr/share/applications/thunar-settings.desktop
+     - rm /usr/share/applications/thunar-volman-settings.desktop
+     - rm /etc/xdg/autostart/nm-applet.desktop 
+  
 
   - type: default-flatpaks
     notify: true
