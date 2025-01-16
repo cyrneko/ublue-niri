@@ -40,6 +40,7 @@ modules:
       - eza
       - bat
       - cosmic-greeter
+      - doas
     remove:
       - firefox
       - firefox-langpacks
