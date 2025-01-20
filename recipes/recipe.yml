@@ -58,7 +58,7 @@ modules:
 
   - type: script
     snippets:
-     - dnf5 remove thunar thunar-volman rofi
+     - dnf5 remove thunar thunar-volman rofi -y
      - rm /usr/share/wayland-sessions/cosmic.desktop
      - rm /usr/share/wayland-sessions/sway.desktop
      # - rm /usr/share/applications/thunar.desktop
