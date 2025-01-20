@@ -48,7 +48,6 @@ modules:
       - sway
       - xarchiver
       - sddm
-      - vim
       # - rofi
       # - thunar
 
@@ -59,7 +58,7 @@ modules:
 
   - type: script
     snippets:
-     - dnf5 remove thunar thunar-volman rofi -y
+     - dnf5 remove thunar thunar-volman rofi vim -y
      - rm /usr/share/wayland-sessions/cosmic.desktop
      - rm /usr/share/wayland-sessions/sway.desktop
      # - rm /usr/share/applications/thunar.desktop
