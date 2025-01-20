@@ -41,6 +41,7 @@ modules:
       - bat
       - cosmic-greeter
       - doas
+      - tailscale
     remove:
       - firefox
       - firefox-langpacks
