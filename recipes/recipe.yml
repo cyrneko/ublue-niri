@@ -48,6 +48,7 @@ modules:
       - sway
       - xarchiver
       - sddm
+      - sddm-wayland-sway
       # - rofi
       # - thunar
 
