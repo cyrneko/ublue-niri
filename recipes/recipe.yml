@@ -59,26 +59,26 @@ modules:
 
   - type: script
     snippets:
-     - dnf5 remove thunar thunar-volman rofi vim -y
+     # - dnf5 remove thunar thunar-volman rofi vim -y
      - rm /usr/share/wayland-sessions/cosmic.desktop
      - rm /usr/share/wayland-sessions/sway.desktop
-     # - rm /usr/share/applications/thunar.desktop
-     # - rm /usr/share/applications/thunar-bulk-rename.desktop
-     # - rm /usr/share/applications/thunar-settings.desktop
-     # - rm /usr/share/applications/thunar-volman-settings.desktop
+     - rm /usr/share/applications/thunar.desktop
+     - rm /usr/share/applications/thunar-bulk-rename.desktop
+     - rm /usr/share/applications/thunar-settings.desktop
+     - rm /usr/share/applications/thunar-volman-settings.desktop
      - rm /etc/xdg/autostart/nm-applet.desktop 
   
 
-  - type: default-flatpaks
-    notify: true
-    system:
-      install:
-        - org.gnome.Loupe
-        - com.github.wwmm.easyeffects
-        - it.mijorus.gearlever
-      # remove:
-      #   - 
-    user: {} # Also add Flathub user repo, but no user packages
+  # - type: default-flatpaks
+  #   notify: true
+  #   system:
+  #     install:
+  #       - org.gnome.Loupe
+  #       - com.github.wwmm.easyeffects
+  #       - it.mijorus.gearlever
+  #     # remove:
+  #     #   - 
+  #   user: {} # Also add Flathub user repo, but no user packages
 
   - type: systemd
     system:
@@ -96,13 +96,6 @@ modules:
       - config
 
   - type: gschema-overrides
-
-  # - type: fonts
-    # fonts:
-      # nerd-fonts:
-        # - Fira Code
-      # google-fonts:
-        # - Inter
 
   - type: signing 
 
