@@ -1,0 +1,62 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+name: ublue-niri-noconfig
+description: "Personal image with Niri, but WITHOUT Waybar and other goodies."
+
+base-image: ghcr.io/ublue-os/sericea-nvidia
+image-version: 41
+
+modules:
+
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/ulysg/xwayland-satellite/repo/fedora-%OS_VERSION%/ulysg-xwayland-satellite-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-git-fedora-%OS_VERSION%.repo
+      - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+    install:
+      - niri
+      - xwayland-satellite
+      - nautilus
+      - xdg-desktop-portal-gnome
+      - cosmic-greeter
+    remove:
+      - sway
+      - xarchiver
+      - sddm
+      - sddm-wayland-sway
+
+  - type: files
+    files:
+      - source: system/etc/greetd/
+        destination: /etc/greetd/
+
+  - type: script
+    snippets:
+     # - dnf5 remove thunar thunar-volman rofi vim -y
+     - rm /usr/share/wayland-sessions/cosmic.desktop
+     - rm /usr/share/wayland-sessions/sway.desktop
+     - rm /usr/share/applications/thunar.desktop
+     - rm /usr/share/applications/thunar-bulk-rename.desktop
+     - rm /usr/share/applications/thunar-settings.desktop
+     - rm /usr/share/applications/thunar-volman-settings.desktop
+     - rm /etc/xdg/autostart/nm-applet.desktop 
+
+  - type: systemd
+    system:
+      # disabled:
+      #   - sddm.service
+      enabled:
+        - greetd.service
+    user:
+      enabled:
+        - waybar.service
+
+  - type: justfiles
+    validate: false
+    include:
+      - config
+
+  - type: signing 
+
