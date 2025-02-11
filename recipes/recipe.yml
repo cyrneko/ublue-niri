@@ -50,6 +50,7 @@ modules:
       - sddm
       - sddm-wayland-sway
       - sway-systemd
+      - sway-config-fedora
       # - rofi
       # - thunar
 
