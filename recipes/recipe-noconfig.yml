@@ -28,6 +28,7 @@ modules:
       - sddm-wayland-sway
       - sway-systemd
       - sway-config-fedora
+      - grimshot
 
   - type: files
     files:

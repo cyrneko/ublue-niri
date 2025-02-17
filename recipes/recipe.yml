@@ -51,6 +51,7 @@ modules:
       - sddm-wayland-sway
       - sway-systemd
       - sway-config-fedora
+      - grimshot
       # - rofi
       # - thunar
 
