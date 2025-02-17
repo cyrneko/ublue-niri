@@ -39,7 +39,7 @@ modules:
     snippets:
      # - dnf5 remove thunar thunar-volman rofi vim -y
      - rm /usr/share/wayland-sessions/cosmic.desktop
-     - rm /usr/share/wayland-sessions/sway.desktop
+     # - rm /usr/share/wayland-sessions/sway.desktop
      - rm /usr/share/applications/thunar.desktop
      - rm /usr/share/applications/thunar-bulk-rename.desktop
      - rm /usr/share/applications/thunar-settings.desktop
