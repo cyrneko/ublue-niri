@@ -38,6 +38,8 @@ modules:
       - gstreamer1-plugins-bad
       - gstreamer1-plugins-ugly 
       - gnome-keyring
+      - luajit
+      - luajit-devel
       # all my personal stuff, niri, etc
       - micro
       - starship
