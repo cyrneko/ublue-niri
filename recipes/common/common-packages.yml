@@ -45,7 +45,6 @@ modules:
       - niri
       - greetd
       - greetd-selinux
-      - pantheon-agent-polkit
       - xwayland-satellite
       - adw-gtk3-theme
       - xdg-desktop-portal-gnome
