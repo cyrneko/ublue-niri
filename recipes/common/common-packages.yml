@@ -56,4 +56,5 @@ modules:
     - cosmic-greeter
     - doas
     - tailscale
-    - android-tools # adb, fastboot, shit like that
+    # adb, fastboot, shit like that
+    - android-tools 
