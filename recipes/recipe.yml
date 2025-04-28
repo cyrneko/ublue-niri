@@ -3,102 +3,20 @@
 name: ublue-niri
 description: "Personal image with Niri, Waybar and other goodies."
 
-base-image: ghcr.io/ublue-os/sericea-nvidia
-image-version: 41
+base-image: ghcr.io/ublue-os/base-nvidia
+image-version: 42
 
 modules:
-
-
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ulysg/xwayland-satellite/repo/fedora-%OS_VERSION%/ulysg-xwayland-satellite-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-%OS_VERSION%/yalter-niri-git-fedora-%OS_VERSION%.repo
-      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-      - https://repo.librewolf.net/librewolf.repo
-      - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-    install:
-      - micro
-      - starship
-      - SDL2
-      - librewolf
-      - swww
-      - swaync
-      - niri
-      - greetd
-      - greetd-selinux
-      - pantheon-agent-polkit
-      - xwayland-satellite
-      - adw-gtk3-theme
-      - nautilus
-      - xdg-desktop-portal-gnome
-      - firacode-nerd-fonts # I give up with the fonts for now
-      - fish
-      - wofi
-      - eza
-      - bat
-      - cosmic-greeter
-      - doas
-      - tailscale
-    remove:
-      - firefox
-      - firefox-langpacks
-      - sway
-      - xarchiver
-      - sddm
-      - sddm-wayland-sway
-      - sway-systemd
-      - sway-config-fedora
-      - grimshot
-      # - rofi
-      # - thunar
-
-  - type: files
-    files:
-      - source: system
-        destination: /
-
-  - type: script
-    snippets:
-     # - dnf5 remove thunar thunar-volman rofi vim -y
-     - rm /usr/share/wayland-sessions/cosmic.desktop
-     # - rm /usr/share/wayland-sessions/sway.desktop
-     - rm /usr/share/applications/thunar.desktop
-     - rm /usr/share/applications/thunar-bulk-rename.desktop
-     - rm /usr/share/applications/thunar-settings.desktop
-     - rm /usr/share/applications/thunar-volman-settings.desktop
-     - rm /etc/xdg/autostart/nm-applet.desktop 
-  
-
-  # - type: default-flatpaks
-  #   notify: true
-  #   system:
-  #     install:
-  #       - org.gnome.Loupe
-  #       - com.github.wwmm.easyeffects
-  #       - it.mijorus.gearlever
-  #     # remove:
-  #     #   - 
-  #   user: {} # Also add Flathub user repo, but no user packages
+  - from-file: common/repos.yml
+  - from-file: common/common-packages.yml
+  - from-file: common/configs.yml
 
   - type: systemd
     system:
-      # disabled:
-      #   - sddm.service
       enabled:
         - greetd.service
-    user:
-      enabled:
-        - waybar.service
-
-  - type: justfiles
-    validate: false
-    include:
-      - config
-
-  - type: gschema-overrides
+    # enabled:
+    #   - waybar.service
 
   - type: signing 
 

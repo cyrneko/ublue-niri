@@ -1,0 +1,12 @@
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  - type: justfiles
+    validate: false
+    include:
+      - config
+
+  - type: gschema-overrides
