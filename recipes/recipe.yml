@@ -10,10 +10,6 @@ modules:
   - from-file: common/repos.yml
   - from-file: common/common-packages.yml
   - from-file: common/configs.yml
-    
-  - type: dnf
-      install: 
-        - librewolf
 
   - type: systemd
     system:
