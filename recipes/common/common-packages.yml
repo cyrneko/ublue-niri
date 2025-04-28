@@ -1,6 +1,7 @@
 modules:
 - type: dnf
   install:
+    skip-unavailable: true
     packages:
       - wl-clipboard
       - distrobox
