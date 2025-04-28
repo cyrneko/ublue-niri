@@ -1,0 +1,58 @@
+@define-color base #24273a;
+@define-color accent #c6a0f6;
+@define-color text_inverse #1e2030;
+@define-color text #cad3f5;
+@define-color surface0 #363a4f;
+
+.background {
+  background-color: @base;
+}
+
+.workspaces .item.focused {
+  background: linear-gradient(45deg, #ea999c, #c6a0f6);
+  color: @text_inverse;
+  margin: 4px 4px;
+}
+
+.workspaces .item {
+  background-color: @surface0;
+  margin: 4px 6px;
+  transition: 0.15s;
+}
+
+.clock,
+.workspaces .item,
+.clipboard,
+.volume,
+.notifications button,
+.tray,
+.upower {
+  background-color: @surface0;
+  margin: 4px 6px;
+  padding: 6px 0px;
+  border-radius: 8px;
+  color: @text;
+}
+
+.notifications .count {
+  background-color: #ed8796;
+  font-size: 0.75em;
+  color: #1e2030;
+  border-radius: 12px;
+  min-width: 14px;
+  margin-right: 10px;
+  margin-top: 6px;
+}
+
+.popup-clipboard .item .btn-remove,
+.popup-volume .device-box .btn-mute,
+.popup-volume .apps-box .app-box .btn-mute,
+.popup-volume .device-box .device-selector >*>* {
+  background-color: @surface0;
+  margin: 8px;
+}
+
+.popup-clipboard {
+  margin: 20px;
+  border-radius: 8px;
+}

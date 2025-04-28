@@ -1,16 +1,20 @@
-// spawn-at-startup "/usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
+spawn-at-startup "/usr/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
 spawn-at-startup "xwayland-satellite" ":3"
-// spawn-at-startup "waybar"
+spawn-at-startup "/usr/bin/ironbar"
 spawn-at-startup "swaync"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "clipman"
-spawn-at-startup "wlsunset" "-S" "9:30" "-s" "17:00" "-t" "3500" "-d" "1800"
+spawn-at-startup "gammastep-indicator"
+// spawn-at-startup "wlsunset" "-S" "7:00" "-s" "18:30" "-t" "3500" "-d" "1800"
 // workaround audio crackling with EasyEffects' crystalizer
-spawn-at-startup "pw-metadata" "-n" "settings" "0" "clock.force-quantum" "1024"
+// spawn-at-startup "pw-metadata" "-n" "settings" "0" "clock.force-quantum" "1024"
+// spawn-at-startup "/home/alexia/.local/bin/bob-launcher" "--gapplication-service"
 prefer-no-csd
 
 environment {
 	DISPLAY ":3"
+	XDG_CONFIG_HOME "/home/alexia/.config"
+	XDG_DATA_HOME "/home/alexia/.local/share"
+	SDL_VIDEODRIVER "wayland"
 }
 
 cursor {
@@ -19,7 +23,7 @@ cursor {
 }
 
 window-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 4
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -44,14 +48,24 @@ input {
     }
 }
 
+clipboard {
+    disable-primary
+}
+
 // Shitty laptop screen
 output "Chi Mei Optoelectronics corp. 0x15A7 Unknown" {
-	scale 0.95
+	scale 1.0
+}
+
+output "LG Display 0x0521 Unknown" {
+	scale 1.25
+	backdrop-color "#1e2030"
 }
 
 layout {
-    gaps 8
+    gaps 12
     center-focused-column "never"
+    always-center-single-column		
 
     preset-column-widths {
         proportion 0.33333
@@ -63,11 +77,32 @@ layout {
 
     // You can change how the focus ring looks.
     focus-ring {
-        // off
-        width 2
-        // active-color "#aa69f8"
-        active-color "#22b1d7"
-        // active-gradient from="#00ba5e" to="#72b536" angle=45 relative-to="workspace-view"
+      // off
+      width 3
+      active-gradient from="#8caaee" to="#81c8be" angle=125 relative-to="workspace-view" in="oklab"
+      // active-color "#aa69f8"
+      // active-color "#6854ba"
+      // inactive-color "#6854ba55"
+    }
+    
+    tab-indicator { 
+    	place-within-column
+    	// position "top"
+    	gaps-between-tabs 4
+    	corner-radius 2
+      // active-color "#6854ba"
+    	active-gradient from="#6854ba" to="#4ce0c6" angle=15 in="oklch longer hue"
+    }
+
+    shadow {
+    	on
+    	spread 0
+    	softness 30
+    	offset x=0 y=0
+    	color "#81c8beFF"
+    	// color "#00000088"
+    	// color "#6854baff"
+			// inactive-color "#00000000"
     }
 }
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d---%H-%M-%S.png"
@@ -89,21 +124,64 @@ window-rule {
 
 window-rule {
 	match app-id="foot"
-	default-column-width { proportion 0.5; }
-	// default-window-height { proportion 0.6; }
+	match app-id="ptyxis"
+	match app-id="Alacritty"
+	default-column-width { proportion 0.75; }
+	// default-column-display "tabbed"
+}
+
+window-rule {
+	match app-id="Rofi"
+	open-floating true
+	default-floating-position x=370 y=200 relative-to="top-left"
+	open-focused true
+}
+
+window-rule {
+	match title=r#"^\bExtensions\b$"#
+	open-floating true
+}
+
+window-rule {
+	match app-id="qemu"
+	match app-id="org.gnome.Loupe"
+	default-column-width { proportion 1.0; }
+}
+
+window-rule {
+	match app-id="xfce-polkit"
+	open-floating true
+}
+
+window-rule {
+  match app-id="wrapper-2.0"
+  open-floating true
+}
+
+window-rule {
+  match app-id="re.sonny.Commit"
+  open-floating true
+}
+
+window-rule {
+  match app-id="ppic"
+  match app-id="ppid"
+  open-fullscreen true
+}
+
+window-rule {
+	match app-id="Celeste.bin.x86_64"
+	open-fullscreen true
 }
 
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
     match app-id="zen$" title="^Picture-in-Picture$"
     match app-id="librewolf$" title="^Picture-in-Picture$"
+    match app-id="LibreWolf$" title="^Picture-in-Picture$"
 
     open-floating true
     default-floating-position x=12 y=12 relative-to="top-right"
-}
-
-/- window-rule {
-	open-floating true
 }
 
 // Example: block out two password managers from screen capture.
@@ -118,6 +196,47 @@ window-rule {
     // block-out-from "screencast"
 }
 
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2dAA"
+        spread 10
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+layer-rule {
+		match namespace="wofi"
+		match namespace="waybar"
+		match at-startup=true
+
+		shadow {
+				on
+				// off
+				softness 40
+				spread 0
+				offset x=0 y=5
+				draw-behind-window false
+				color "#00000080"
+				// inactive-color "#00000064"
+		}
+}
+
+
 binds {
     Mod+Shift+0 { show-hotkey-overlay; }
 
@@ -125,10 +244,13 @@ binds {
     Mod+Delete { spawn "bash" "/home/alexia/.local/bin/darkmode.sh" "prefer-light"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return { spawn "foot"; }
-    Mod+Space { spawn "wofi" "--show" "drun" "--conf" "/etc/xdg/wofi/config" "--style" "/etc/xdg/wofi/style.css"; }
+    Mod+Return { spawn "alacritty"; }
+    // Mod+Space { spawn "wofi" "--show" "drun" "--conf" "/etc/xdg/wofi/config" "--style" "/etc/xdg/wofi/style.css"; }
+    // Mod+Space { spawn "wofi" "--show" "drun"; }
+    // Mod+Space { spawn "/home/alexia/.local/bin/bob-launcher" "--select-plugin" "desktop-file"; }
+    Mod+Space { spawn "fuzzel"; }
     // Mod+Space { spawn "fuzzel"; }
-    Super+L { spawn "swaylock"; }
+    Super+L { spawn "gtklock"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
@@ -137,13 +259,20 @@ binds {
     XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
+		XF86AudioPlay					allow-when-locked=true { spawn "playerctl" "play-pause"; }
+		XF86AudioStop					allow-when-locked=true { spawn "playerctl" "stop"; }
+		XF86AudioPrev					allow-when-locked=true { spawn "playerctl" "previous"; }
+		XF86AudioNext					allow-when-locked=true { spawn "playerctl" "next"; }
+
     Mod+N { spawn "swaync-client" "-t" "-sw"; }
 
     Mod+KP_Add allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
     Mod+KP_Subtract allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
 
     Mod+Q { close-window; }
-	Mod+Y { toggle-window-floating; }
+		Mod+Y { toggle-window-floating; }
+		Mod+X { toggle-column-tabbed-display; }
+		Mod+J { expand-column-to-available-width; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -155,10 +284,10 @@ binds {
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
 
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
-    Mod+I              { focus-workspace-down; }
-    Mod+U              { focus-workspace-up; }
+    // Mod+Page_Down      { focus-workspace-down; }
+    // Mod+Page_Up        { focus-workspace-up; }
+    Mod+1              { focus-workspace-up; }
+    Mod+2              { focus-workspace-down; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+I         { move-column-to-workspace-down; }
@@ -168,6 +297,8 @@ binds {
     Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+I         { move-workspace-down; }
     Mod+Shift+U         { move-workspace-up; }
+
+    Mod+W               { toggle-overview; }
 
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
@@ -187,15 +318,15 @@ binds {
     Mod+TouchPadScrollDown    { spawn "brightnessctl" "set" "+2.5%"; }
     Mod+TouchPadScrollUp  { spawn "brightnessctl" "set" "2.5%-"; }
 
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
+    // Mod+1 { focus-workspace 1; }
+    // Mod+2 { focus-workspace 2; }
+    // Mod+3 { focus-workspace 3; }
+    // Mod+4 { focus-workspace 4; }
+    // Mod+5 { focus-workspace 5; }
+    // Mod+6 { focus-workspace 6; }
+    // Mod+7 { focus-workspace 7; }
+    // Mod+8 { focus-workspace 8; }
+    // Mod+9 { focus-workspace 9; }
 
     Mod+Tab  { consume-window-into-column; }
     Mod+dead_circumflex { expel-window-from-column; }

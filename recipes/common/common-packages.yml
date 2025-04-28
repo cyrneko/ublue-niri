@@ -52,10 +52,12 @@ modules:
       - firacode-nerd-fonts
       - fish
       - wofi
+      - fuzzel
       - eza
       - bat
       - cosmic-greeter
       - doas
       - tailscale
+      - alacritty
       # adb, fastboot, shit like that
       - android-tools 

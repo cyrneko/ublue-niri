@@ -1,0 +1,23 @@
+position: "left"
+height: 32
+start:
+  - type: "workspaces"
+center: []
+end: 
+  - type: "volume"
+  - type: "clipboard"
+    max_items: 3
+    truncate:
+      mode: 'end'
+      length: 50
+  - type: "tray"
+    icon_size: 32
+  - type: "notifications"
+  # - type: "upower"
+  #   format: "{percentage}%"
+  #   icon_size: 10
+  - type: "clock"
+    format: "%H:%M"
+    orientation: vertical
+# start_hidden: true
+# autohide: 1000
