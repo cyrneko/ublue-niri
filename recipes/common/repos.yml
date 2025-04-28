@@ -1,0 +1,10 @@
+type: dnf
+repos:
+  copr:
+    - atim/starship
+    - erikreider/SwayNotificationCenter
+    - yalter/niri-git
+  files: 
+    - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+    - https://repo.librewolf.net/librewolf.repo
+    - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
