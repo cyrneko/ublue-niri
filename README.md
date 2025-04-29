@@ -3,7 +3,7 @@
 This is my personal Universal Blue image, including things like Niri, Greetd, Ironbar...
 
 > **Warning**  
-> This image is highly experimental and comes loaded with my configuration. If you want an image without my configuration please .
+> This image is highly experimental and comes loaded with my configuration. If you want an image without my configuration please use ublue-niri-noconfig.
 
 To rebase an existing atomic Fedora installation to the latest build:
 
