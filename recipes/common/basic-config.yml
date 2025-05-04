@@ -1,0 +1,15 @@
+modules:
+  - type: files
+    files:
+      - source: basics
+        destination: /
+
+  - type: systemd
+    system:
+      enabled:
+        - greetd.service
+
+  - type: justfiles
+    validate: false
+    include:
+      - config
