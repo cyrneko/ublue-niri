@@ -8,6 +8,9 @@ modules:
     system:
       enabled:
         - greetd.service
+    user:
+      enabled:
+        - swww-wallpaper.service
 
   - type: justfiles
     validate: false
