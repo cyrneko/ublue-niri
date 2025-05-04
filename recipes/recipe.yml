@@ -12,5 +12,10 @@ modules:
   - from-file: common/basic-config.yml
   - from-file: common/config.yml
 
+  - type: systemd
+    user:
+      enabled:
+        - swww-wallpaper.service
+
   - type: signing 
 
