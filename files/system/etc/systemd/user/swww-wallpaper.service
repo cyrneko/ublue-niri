@@ -5,6 +5,3 @@ After=graphical-session.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/swww img /usr/share/backgrounds/default.webp
-
-[Install]
-WantedBy=multi-user.target
