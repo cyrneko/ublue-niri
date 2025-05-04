@@ -9,13 +9,7 @@ image-version: 42
 modules:
   - from-file: common/repos.yml
   - from-file: common/common-packages.yml
-
-  - type: systemd
-    system:
-      enabled:
-        - greetd.service
-    # enabled:
-    #   - waybar.service
+  - from-file: common/basic-config.yml
 
   - type: signing 
 
