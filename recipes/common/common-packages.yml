@@ -40,6 +40,10 @@ modules:
       - gnome-keyring
       - luajit
       - luajit-devel
+      # specifically for testing in VMs, i.e GNOME-boxes
+      - spice-server
+      - spice-vdagent
+      - spice-webdavd
       # all my personal stuff, niri, etc
       - micro
       - starship
