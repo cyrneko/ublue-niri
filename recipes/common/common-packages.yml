@@ -67,3 +67,12 @@ modules:
       - alacritty
       # adb, fastboot, shit like that
       - android-tools 
+  remove:
+    packages:
+      - cosmic-session
+      - cosmic-term
+      - cosmic-files
+      - cosmic-settings
+      - cosmic-screenshot
+      - cosmic-workspaces
+      - xdg-desktop-portal-cosmic
