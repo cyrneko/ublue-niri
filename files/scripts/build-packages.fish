@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set --global packages cargo gtk3-devel gtk-layer-shell-devel openssl-devel libdbusmenu-gtk3-devel pulseaudio-libs-devel libinput-devel luajit-devel lua-lgi make cmake gcc libevdev-devel sccache ffmpeg ffmpeg-libs libavutil-devel libavformat-devel
+set --global packages cargo gtk3-devel gtk-layer-shell-devel openssl-devel libdbusmenu-gtk3-devel pulseaudio-libs-devel libinput-devel luajit-devel lua-lgi make cmake gcc libevdev-devel sccache ffmpeg ffmpeg-libs libavutil-devel libavformat-devel libavfilter-devel
 set --global RUSTC_WRAPPER $(which sccache)
 
 sudo dnf install $packages -y
