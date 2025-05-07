@@ -12,6 +12,10 @@ modules:
   - from-file: common/basic-config.yml
   - from-file: common/config.yml
 
+  - type: script
+    scripts:
+      - build-ironbar.fish
+
   - type: systemd
     user:
       enabled:
