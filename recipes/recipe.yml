@@ -14,7 +14,7 @@ modules:
 
   - type: script
     scripts:
-      - build-ironbar.fish
+      - build-packages.fish arguments
 
   - type: systemd
     user:
