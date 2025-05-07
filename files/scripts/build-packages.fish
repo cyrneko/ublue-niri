@@ -14,12 +14,12 @@ cd ..
 rm -rf ironbar
 
 # build wl-screenrec
-git clone --depth 1 https://github.com/russelltg/wl-screenrec
-cd wl-screenrec
-cargo build --release
-sudo install target/release/wl-screenrec /usr/bin/wl-screenrec
-cd ..
-rm -rf wl-screenrec
+# git clone --depth 1 https://github.com/russelltg/wl-screenrec
+# cd wl-screenrec
+# cargo build --release
+# sudo install target/release/wl-screenrec /usr/bin/wl-screenrec
+# cd ..
+# rm -rf wl-screenrec
 
 sudo dnf remove $packages -y
 sudo dnf autoremove
