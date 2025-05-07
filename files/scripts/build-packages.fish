@@ -3,8 +3,6 @@
 set --global packages cargo gtk3-devel gtk-layer-shell-devel openssl-devel libdbusmenu-gtk3-devel pulseaudio-libs-devel libinput-devel luajit-devel lua-lgi make cmake gcc libevdev-devel sccache ffmpeg ffmpeg-libs
 set --global RUSTC_WRAPPER $(which sccache)
 
-echo "arguments: $argv"
-
 sudo dnf install $packages -y
 
 # build ironbar

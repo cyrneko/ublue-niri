@@ -14,7 +14,7 @@ modules:
 
   - type: script
     scripts:
-      - build-packages.fish arguments
+      - build-packages.fish
 
   - type: systemd
     user:
