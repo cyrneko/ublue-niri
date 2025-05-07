@@ -11,10 +11,10 @@ git clone --depth 1 https://github.com/JakeStanger/ironbar.git
 cd ironbar
 set --global RUSTC_WRAPPER $(which sccache)
 cargo build --release
+sudo install target/release/ironbar /usr/bin/ironbar
 cd ..
 rm -rf ironbar
 
-sudo install target/release/ironbar /usr/bin/ironbar
 
 sudo dnf remove $packages -y
 sudo dnf autoremove
