@@ -1,5 +1,5 @@
 modules:
   - type: script
     snippets:
-      - "curl -fsSL https://install.determinate.systems/nix | sh -s -- install --no-start-daemon --no-confirm"
+      - "curl -fsSL https://install.determinate.systems/nix | sh -s -- install --no-confirm -- --no-start-daemon"
       # what fucking order do these args have to be in lmfao help
