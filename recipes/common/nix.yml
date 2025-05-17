@@ -1,0 +1,4 @@
+modules:
+  - type: script
+    snippets:
+      - "curl -fsSL https://install.determinate.systems/nix | sh -s -- install --no-confirm"
