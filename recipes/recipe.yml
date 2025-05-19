@@ -11,7 +11,7 @@ modules:
   - from-file: common/common-packages.yml
   - from-file: common/basic-config.yml
   - from-file: common/config.yml
-  - from-file: common/nix.yml
+  # - from-file: common/nix.yml
 
   - type: script
     scripts:
