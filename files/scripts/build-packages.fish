@@ -22,4 +22,4 @@ rm -rf ironbar
 # rm -rf wl-screenrec
 
 sudo dnf remove $packages -y
-sudo dnf autoremove
+sudo dnf autoremove -y
