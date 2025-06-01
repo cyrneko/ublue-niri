@@ -9,6 +9,7 @@ image-version: 42
 modules:
   - from-file: common/repos.yml
   - from-file: common/common-packages.yml
+  - from-file: common/steam.yml
   - from-file: common/basic-config.yml
   - from-file: common/config.yml
   # - from-file: common/nix.yml
