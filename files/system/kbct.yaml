@@ -1,0 +1,4 @@
+- keyboards: [ "AT Translated Set 2 keyboard"]
+
+  keymap:
+    rightctrl: 102nd

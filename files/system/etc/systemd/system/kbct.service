@@ -1,0 +1,11 @@
+[Unit]
+Description=Keyboard keycode mapping daemon supporting layered configuration
+
+[Service]
+Type=simple
+ExecStartPre=modprobe uinput
+ExecStart=/bin/sh -c "/usr/bin/kbct remap --config /etc/kbct.yaml"
+Restart=always
+
+[Install]
+WantedBy=default.target

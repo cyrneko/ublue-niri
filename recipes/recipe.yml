@@ -22,5 +22,7 @@ modules:
     user:
       enabled:
         - swww-wallpaper.service
+        - kbct.service
+        - kbct-restart.service
 
   - type: signing

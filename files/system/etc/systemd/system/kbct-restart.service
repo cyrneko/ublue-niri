@@ -1,0 +1,10 @@
+[Unit]
+Description=KBCT Restart on unsuspend
+After=suspend.target
+
+[Service]
+Type=one-shot
+ExecStart=sh -c "sleep 2s && systemctl restart kbct.service"
+
+[Install]
+WantedBy=suspend.target
