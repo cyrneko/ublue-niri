@@ -67,6 +67,8 @@ modules:
       - tailscale
       - alacritty
       - librewolf
+      - hyfetch
+      - fastfetch
       # adb, fastboot, shit like that
       - android-tools 
   remove:
