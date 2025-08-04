@@ -5,7 +5,7 @@ After=graphical-session.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/swww img /usr/share/backgrounds/default.webp
-ExecStart=systemctl --user disable swww-wallpaper.service
+ExecStart=systemctl --user --global disable swww-wallpaper.service
 
 [Install]
 WantedBy=graphical-session.target
