@@ -22,6 +22,8 @@ modules:
     user:
       enabled:
         - swww-wallpaper.service
+    system:
+      enabled:
         - kbct.service
         - kbct-restart.service
 
