@@ -1,5 +1,6 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# hi i am changing this just so that this file is in the next commit. bleh.
 name: ublue-niri
 description: "Personal image with Niri, Waybar and other goodies."
 
