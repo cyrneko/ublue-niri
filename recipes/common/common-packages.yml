@@ -57,6 +57,7 @@ modules:
       - xdg-desktop-portal-gnome
       - firacode-nerd-fonts
       - fish
+      - gtklock
       - wofi
       - fuzzel
       - eza
