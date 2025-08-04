@@ -40,6 +40,6 @@ jobs:
           pr_event_number: ${{ github.event.number }}          
 
           # enabled by default, disable if your image is small and you want faster builds
-          maximize_build_space: true
-          squash: true
-          # rechunk: true
+          maximize_build_space: false
+          squash: false
+          rechunk: true
