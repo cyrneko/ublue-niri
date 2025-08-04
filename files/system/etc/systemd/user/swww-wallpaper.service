@@ -5,8 +5,7 @@ After=graphical-session.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/swww img /usr/share/backgrounds/default.webp
-ExecStart=touch $HOME/.cache/.swww-success
-ConditionPathExists=$HOME/.cache/.swww-success
+ExecStart=systemctl --user disable swww-wallpaper.service
 
 [Install]
 WantedBy=graphical-session.target
