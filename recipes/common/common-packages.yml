@@ -45,6 +45,7 @@ modules:
       - spice-vdagent
       - spice-webdavd
       # all my personal stuff, niri, etc
+      - mullvad
       - micro
       - starship
       - swww
