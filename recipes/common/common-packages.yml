@@ -69,6 +69,7 @@ modules:
       - librewolf
       - hyfetch
       - fastfetch
+      - nwg-look
       # adb, fastboot, shit like that
       - android-tools 
   remove:
