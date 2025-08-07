@@ -15,9 +15,9 @@ modules:
   - from-file: common/config.yml
   - from-file: common/fix-mullvad.yml
 
-  - type: script
-    scripts:
-      - build-packages.fish
+  # - type: script
+  #   scripts:
+  #     - build-packages.fish
 
   - type: systemd
     user:
