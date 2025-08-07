@@ -5,7 +5,7 @@ mkdir -p mullvad-extract
 cd mullvad-extract
 curl -L --progress-bar "https://mullvad.net/en/download/app/rpm/latest" --output "mullvad.rpm"
 echo "rpm2archive is not verbose. Trust me it is doing *something* right now"
-rpm2archive ./mullvad.rpm
+rpm2archive ./mullvad.rpm | tee mullvad.rpm.tgz
 mkdir extract -p
 tar xvf mullvad.rpm.tgz -C extract
 mkdir -p /usr/share/mullvad-gui/
