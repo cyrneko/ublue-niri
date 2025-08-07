@@ -29,7 +29,7 @@ modules:
         - kbct-restart.service
 
   - type: soar
-      additional-repos: false
-      auto-upgrade: false
+    additional-repos: false
+    auto-upgrade: false
 
   - type: signing
