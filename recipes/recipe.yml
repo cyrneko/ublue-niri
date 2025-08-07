@@ -13,6 +13,7 @@ modules:
   - from-file: common/steam.yml
   - from-file: common/basic-config.yml
   - from-file: common/config.yml
+  - from-file: common/fix-mullvad.yml
 
   - type: script
     scripts:
@@ -26,5 +27,9 @@ modules:
       enabled:
         - kbct.service
         - kbct-restart.service
+
+  - type: soar
+      additional-repos: false
+      auto-upgrade: false
 
   - type: signing
