@@ -40,6 +40,9 @@ modules:
       - gnome-keyring
       - luajit
       - luajit-devel
+      - dconf
+      - dconf-editor
+      - gsettings-desktop-schemas
       # specifically for testing in VMs, i.e GNOME-boxes
       - spice-server
       - spice-vdagent
